@@ -1,0 +1,36 @@
+{
+  "name": "tower-of-ascension",
+  "version": "1.46.0",
+  "description": "Tower of Ascension — Complete Edition",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-win": "electron-builder --win --x64",
+    "build-mac": "electron-builder --mac",
+    "build-linux": "electron-builder --linux AppImage --x64"
+  },
+  "build": {
+    "appId": "com.toa.complete-edition",
+    "productName": "Tower of Ascension",
+    "directories": { "output": "dist", "buildResources": "app" },
+    "files": ["main.js", "app/**/*"],
+    "win": {
+      "target": [{ "target": "portable", "arch": ["x64"] }],
+      "icon": "app/icon.png"
+    },
+    "mac": {
+      "target": [{ "target": "dmg" }],
+      "icon": "app/icon.png",
+      "category": "public.app-category.games"
+    },
+    "linux": {
+      "target": [{ "target": "AppImage", "arch": ["x64"] }],
+      "icon": "app/icon.png",
+      "category": "Game"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  }
+}
